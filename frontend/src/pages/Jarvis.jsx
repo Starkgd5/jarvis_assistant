@@ -23,16 +23,16 @@ const Jarvis = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-jarvis-dark text-white">
+    <div className="flex flex-col h-screen bg-dark text-white">
       <div className="flex-1 overflow-auto p-4">
         {conversations.map((conv) => (
           <div key={conv.id} className="mb-4">
-            <p className="text-jarvis-blue">You: {conv.message}</p>
+            <p className="text-blue">You: {conv.message}</p>
             <p>Jarvis: {conv.response}</p>
           </div>
         ))}
       </div>
-      <form onSubmit={handleSubmit} className="p-4 bg-jarvis-dark">
+      <form onSubmit={handleSubmit} className="p-4 bg-dark">
         <div className="flex items-center">
           <input
             type="text"
@@ -41,7 +41,7 @@ const Jarvis = () => {
             className="flex-1 p-2 rounded-l bg-gray-700 text-white"
             placeholder="Ask Jarvis..."
           />
-          <button type="submit" className="bg-jarvis-blue p-2 rounded-r">
+          <button type="submit" className="bg-blue p-2 rounded-r">
             Send
           </button>
           <button

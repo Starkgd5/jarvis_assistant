@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound"
-import Jarvis from './pages/Jarvis';
+import Johnys from './pages/Johnys';
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function Logout() {
@@ -24,7 +24,7 @@ function App() {
           path="/"
           element={
             <ProtectedRoute>
-              <Jarvis />
+              <Johnys />
             </ProtectedRoute>
           }
         />

@@ -1,8 +1,25 @@
 # assistant/serializers.py
 from rest_framework import serializers
-from .models import Conversation
+from .models import Query, ResponseModel
+from django.contrib.auth.models import User
 
-class ConversationSerializer(serializers.ModelSerializer):
+
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Conversation
-        fields = ['id', 'message', 'response', 'timestamp']
+        model = User
+        fields = ['id', 'username']
+
+
+class ResponseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ResponseModel
+        fields = ['id', 'text', 'created_at']
+
+class QuerySerializer(serializers.ModelSerializer):
+    response = ResponseSerializer(read_only=True)
+    user = UserSerializer(read_only=True)
+
+    class Meta:
+        model = Query
+        fields = ['id', 'user', 'question', 'created_at', 'response']
+        read_only_fields = ['id', 'created_at']
